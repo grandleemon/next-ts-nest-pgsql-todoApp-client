@@ -8,10 +8,21 @@ export interface ITodo {
   id: number
   title: string
   done?: boolean
+  createdAt?: string
 }
 
 export const PostsService = {
+
   async getAll() {
     return await axios.get<ITodo[]>('/todos')
+  },
+
+  async getTodoById(id?: number) {
+    return await axios.get<ITodo>(`/todos/${id}`)
+  },
+
+  async createTodo(title: string) {
+    console.log(title)
+    return await axios.post(`/todos`, {title: title})
   }
 }
