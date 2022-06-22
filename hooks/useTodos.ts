@@ -2,16 +2,14 @@ import {useQuery} from "react-query";
 import {ITodo, PostsService} from "../app/services/posts.service";
 
 export const useTodos = () => {
-  const {data: todos, isLoading} = useQuery(
+  const {data: todos, isLoading, refetch} = useQuery(
     'posts',
     () => PostsService.getAll(),
     {
       onError: (error: any) => {
         alert(error.message)
       },
-      select: ({data}): ITodo[] => {
-        return data.map(todo => todo)
-      }
+      select: ({data}): ITodo[] => data.map(todo => todo)
     })
-  return {isLoading, todos}
+  return {isLoading, todos, refetch}
 }
