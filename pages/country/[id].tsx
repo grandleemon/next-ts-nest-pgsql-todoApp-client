@@ -1,6 +1,6 @@
 import type {NextPage} from 'next'
 import Head from 'next/head'
-import styles from '../../styles/Home.module.css'
+import styles from '../Home.module.scss'
 import {useTodo} from "../../hooks/useTodo";
 import {useRouter} from "next/router";
 import Link from "next/link";

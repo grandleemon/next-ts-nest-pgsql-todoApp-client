@@ -1,0 +1,122 @@
+.loader {
+  @apply pointer-events-none absolute top-0 left-0 flex justify-center items-center w-[100vw] h-[100vh] bg-[#515BF6] transition duration-500 opacity-0 translate-x-[100%] z-[99]
+}
+
+.loader.loaderActive {
+  @apply opacity-100 translate-x-0
+}
+
+.container {
+  @apply m-auto max-w-[1300px]
+}
+
+.todoSection {
+  @apply bg-gradient-to-r from-[#51F6E3] to-[#46BED4] h-[100vh] w-full flex justify-center items-center relative
+}
+
+.blurCircle {
+  @apply absolute bg-[#515BF6] w-[100vh] h-[100vh] rounded-full blur-[213px]
+}
+
+.blurCircle.circleRight {
+  @apply top-[-464px] right-[-422px] opacity-100 z-[6] pointer-events-none
+}
+
+.blurCircle.circleLeft {
+  @apply left-[-365px] bottom-[-430px] opacity-70 z-[6] bg-[#4673D4] pointer-events-none
+}
+
+.todoWrapper h1 {
+  @apply text-[36px] text-center
+}
+
+.todoWrapper {
+  @apply w-full p-10 min-w-[1000px] min-h-[600px] z-[5] bg-white/20 relative border-2 border-white/50 rounded-[15px] backdrop-blur-[5px]
+}
+
+.circle {
+  //animation: rotate 10s infinite linear;
+  @apply border-2 border-white/50 rounded-full bg-white/30 w-[500px] h-[500px] absolute left-[50px] bottom-[50px] scale-100
+  transition duration-500 hover:scale-150
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+    @apply bg-white/0
+  }
+  25% {
+    @apply bg-white/30
+  }
+  50% {
+    transform: rotate(180deg);
+    @apply bg-white/60
+  }
+  75% {
+    @apply bg-white/30
+  }
+  100% {
+    transform: rotate(360deg);
+    @apply bg-white/0
+  }
+}
+
+.todoList {
+  @apply flex flex-col
+}
+
+.todoItem {
+  @apply py-[5px] flex justify-between px-5 bg-transparent cursor-pointer text-center text-[20px] transition-all duration-500 relative z-[10] rounded-[100px]
+}
+
+.todoItem:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: -1;
+  background: linear-gradient(149deg, #009EEB 0%, #45F6DE 42%, #4DACEB 72%, #3B6FD4 100%);
+  background-size: 400%; // Можно менять и подбирать интенсивность
+  animation: gradient 10s infinite linear; // 10s - скорость анимации
+  @apply rounded-[100px]
+}
+
+.todoItem:hover:after {
+  opacity: 1;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 80% 0;
+  }
+  50% {
+    background-position: 20% 100%;
+  }
+  100% {
+    background-position: 80% 0;
+  }
+}
+
+.todoWrapperFooter {
+  @apply mt-[20px] flex gap-x-[20px]
+}
+
+.todoWrapperFooter button {
+  @apply border-2 border-white bg-white/30 rounded-[100px] w-[200px] h-10 hover:bg-white/10 transition duration-500
+}
+
+.todoWrapperFooter input {
+  @apply outline-0 h-10 flex-1 rounded-[100px] px-5 bg-white/30 border-2 border-white transition duration-500 hover:bg-white/10 focus:outline-0 focus:bg-white/10
+}
+
+.headerProfile {
+  @apply cursor-pointer w-10 h-10 rounded-full flex justify-center items-center hover:bg-white/50 transition duration-500
+}
+
+.headerWrapper {
+  @apply w-full h-full
+}
